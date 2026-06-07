@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "CodeAI - 코딩 AI 어시스턴트"
+version = "1.0.0"
+id = "artifacts/codeai"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24952
+
+[services.development]
+run = "pnpm --filter @workspace/codeai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/codeai", "run", "build" ]
+publicDir = "artifacts/codeai/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24952"
+BASE_PATH = "/"
