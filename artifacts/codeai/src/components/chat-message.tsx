@@ -68,7 +68,7 @@ export const ChatMessage = memo(function ChatMessage({ message, username }: Chat
             remarkPlugins={[remarkGfm]}
             components={{
               code(props) {
-                const { children, className, node, ...rest } = props;
+                const { children, className } = props;
                 const match = /language-(\w+)/.exec(className || '');
                 const language = match ? match[1] : '';
                 const isInline = !match;
@@ -89,7 +89,6 @@ export const ChatMessage = memo(function ChatMessage({ message, username }: Chat
                         </Button>
                       </div>
                       <SyntaxHighlighter
-                        {...rest}
                         PreTag="div"
                         children={String(children).replace(/\n$/, '')}
                         language={language}

@@ -280,7 +280,7 @@ export default function Chat() {
               placeholder="Ask for code..."
               className="min-h-[60px] pl-10 pr-14 py-3.5 resize-none bg-card border-border focus-visible:ring-primary/50 font-mono text-sm shadow-sm"
               rows={1}
-              maxRows={8}
+
             />
             <Button
               size="icon"
