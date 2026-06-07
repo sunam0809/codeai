@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: codeai
+    runtime: node
+    buildCommand: npm install -g pnpm && pnpm install && pnpm run build
+    startCommand: pnpm --filter @workspace/api-server run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        value: d8cee89f375724cff1d898e43a3d01533bfed1ac60261cfa31eb793ff9618f2a1662498a418ab5140215f0e92dc80258c8e580634577887cd2aa5456c9d62cc3
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
