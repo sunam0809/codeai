@@ -104,7 +104,7 @@ export const ChatMessage = memo(function ChatMessage({ message, username }: Chat
                   );
                 }
                 return (
-                  <code {...rest} className="bg-muted px-1.5 py-0.5 rounded text-primary font-mono text-[0.9em]">
+                  <code className="bg-muted px-1.5 py-0.5 rounded text-primary font-mono text-[0.9em]">
                     {children}
                   </code>
                 );
