@@ -2,7 +2,7 @@ services:
   - type: web
     name: codeai
     runtime: node
-    buildCommand: npm install -g pnpm --prefix ~/.npm-global && export PATH=$HOME/.npm-global/bin:$PATH && pnpm install --frozen-lockfile && pnpm run typecheck:libs && pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/codeai run build
+    buildCommand: npm install -g pnpm --prefix ~/.npm-global && export PATH=$HOME/.npm-global/bin:$PATH && CI=true pnpm install && pnpm run typecheck:libs && pnpm --filter @workspace/api-server run build && pnpm --filter @workspace/codeai run build
     startCommand: pnpm --filter @workspace/api-server run start
     envVars:
       - key: NODE_ENV
